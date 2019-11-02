@@ -15,13 +15,9 @@ class Offset
     full_date = day + month + year
   end
 
+
   def square_date
     date = find_date.to_i
     date * date
-  end
-
-  def last_four_digits
-    full_number = square_date
-    full_number % 10000
   end
 end
