@@ -27,4 +27,21 @@ class OffsetTest < Minitest::Test
     assert_equal 446012161, @offset.square_date
   end
 
+  def test_it_can_find_last_four
+    assert_equal 2161, @offset.last_four_digits
+  end
+
+  def test_it_can_split_last_four
+    assert_equal ["2", "1", "6", "1"], @offset.split_last_four
+  end
+
+  def test_it_can_generate_offset_amount
+    placeholder = {
+                  :a => 2,
+                  :b => 1,
+                  :c => 6,
+                  :d => 1
+                  }
+    assert_equal placeholder, @offset.offset_amount
+  end
 end
