@@ -24,5 +24,12 @@ class Offset
     full_number = square_date
     last_four = full_number % 10000
   end
-  
+
+  def split_last_four
+   last_four = last_four_digits
+   last_four_numbers = []
+   last_four_numbers << last_four.to_s
+   last_four_numbers[0].split("")
+ end
+
 end

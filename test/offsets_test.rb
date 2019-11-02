@@ -30,4 +30,8 @@ class OffsetTest < Minitest::Test
   def test_it_can_find_last_four
     assert_equal 2161, @offset.last_four_digits
   end
+
+  def test_it_can_split_last_four
+    assert_equal ["2", "1", "6", "1"], @offset.split_last_four
+  end
 end
