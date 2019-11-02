@@ -27,4 +27,7 @@ class OffsetTest < Minitest::Test
     assert_equal 446012161, @offset.square_date
   end
 
+  def test_it_can_find_last_four
+    assert_equal 2161, @offset.last_four_digits
+  end
 end
