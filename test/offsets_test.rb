@@ -13,6 +13,7 @@ class OffsetTest < Minitest::Test
     assert_instance_of Offset, @offset
   end
 
+#add mocks and stubs for below tests
   # def test_it_has_attributes
   #   date = Time.now
   #   assert_equal date, @offset.date
