@@ -22,4 +22,9 @@ class OffsetTest < Minitest::Test
   def test_it_can_find_dates
     assert_equal "021119", @offset.find_date
   end
+
+  def test_it_can_square
+    assert_equal 446012161, @offset.square_date
+  end
+
 end
