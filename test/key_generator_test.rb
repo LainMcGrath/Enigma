@@ -21,8 +21,8 @@ class KeysTest < Minitest::Test
   end
 
   def test_it_can_slice_random_keys
-    @keys.expects(:slice_random_key).returns("68325")
-    assert_equal "68325", @keys.slice_random_key
+    @keys.expects(:slice_random_key).returns(["68", "83", "32", "25"])
+    assert_equal ["68", "83", "32", "25"], @keys.slice_random_key
   end
 
   def test_it_can_create_offset

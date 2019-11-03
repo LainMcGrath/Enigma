@@ -30,13 +30,11 @@ class Offset
  end
 
  def offset_amount
-     last_four = split_last_four
-     last_four.reduce({}) do |acc, number|
-       acc[:a] = ((last_four[0]).to_i)
-       acc[:b] = ((last_four[1]).to_i)
-       acc[:c] = ((last_four[2]).to_i)
-       acc[:d] = ((last_four[3]).to_i)
-       acc
-     end
-   end
+   last_four = {}
+   last_four[:a] = split_last_four[0].to_i
+   last_four[:b] = split_last_four[1].to_i
+   last_four[:c] = split_last_four[2].to_i
+   last_four[:d] = split_last_four[3].to_i
+   last_four
+ end
 end
