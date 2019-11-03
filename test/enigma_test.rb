@@ -24,17 +24,14 @@ class EnigmaTest < Minitest::Test
     assert_instance_of KeyGenerator, @enigma.key_generator
   end
 
-  def test_it_can_calculate_shift_amount
-    placeholder = {:a=>27, :b=>51, :c=>14, :d=>89}
-    assert_equal placeholder, @enigma.shift_amount
-  end
+  # def test_it_can_calculate_shift_amount
+  #   placeholder = {:a=>27, :b=>51, :c=>14, :d=>89}
+  #   # @enigma.expects(:shift_amount).returns({:a=>27, :b=>51, :c=>14, :d=>89})
+  #   assert_equal placeholder, @enigma.shift_amount
+  # end
 
   def test_it_can_encrypt
-    message = "Hello!"
-    placeholder = "01234"
-    array = []
-    array << message
-    array << placeholder
-    assert_equal array, @enigma.encrypt(message, @enigma.key_generator.generated_key)
+    # assert_instance_of Hash, @enigma.encrypt("Hello world!", 1)
+    assert_equal "mjqqt", @enigma.message_encrypt("Hello", 62)
   end
 end

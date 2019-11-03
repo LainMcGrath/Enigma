@@ -1,4 +1,4 @@
-class Enigma
+class Encrypt
 
   attr_reader :character_set, :offset, :key_generator
 
@@ -18,6 +18,16 @@ class Enigma
     shifts = [a, b, c, d]
   end
 
+  def shifted_ords
+    shift_amount.map do |shift|
+      if shift > 27
+        shift % 27
+      else
+        shift
+      end
+    end
+  end
+
   def rotate_shift_amount
     shift_amount.rotate!
   end
@@ -28,20 +38,8 @@ class Enigma
 
   def message_encrypt(message, key)
     message_to_ord = message.downcase.chars.map { |letter| letter.ord }
-    shifted_message = message_to_ord.map do |letter|
-      if 
-      letter + key
-      require "pry"; binding.pry
+    shifted_message = message_to_ord.map do |letter| letter + key )
     end
     joined_message = shifted_message.map { |letter| letter.chr }.join
-      require "pry"; binding.pry
-  end
-
-  def encrypt(message)
-    encryption_list = {}
-    encryption_list[:encryption] = message
-    encryption_list[:key] = @key_generator.generated_key
-    encryption_list[:date] = @offset.find_date
-    encryption_list
   end
 end
