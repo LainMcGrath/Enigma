@@ -1,15 +1,9 @@
-require 'simplecov'
-SimpleCov.start
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'mocha/minitest'
-require 'Date'
+require './test/test_helper'
 require './lib/offsets'
 
 class OffsetTest < Minitest::Test
-
   def setup
-  @offset = Offset.new
+    @offset = Offset.new
   end
 
   def test_it_exists

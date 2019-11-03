@@ -1,9 +1,7 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper'
 require './lib/enigma'
 require './lib/offsets'
 require './lib/key_generator'
-
 
 class EnigmaTest < Minitest::Test
 
@@ -26,8 +24,17 @@ class EnigmaTest < Minitest::Test
     assert_instance_of KeyGenerator, @enigma.key_generator
   end
 
-  # def test_it_can_calculate_shift_amount
-  #   placeholder = {:a=>27, :b=>51, :c=>14, :d=>89}
-  #   assert_equal placeholder, @enigma.shift_amount
-  # end
+  def test_it_can_calculate_shift_amount
+    placeholder = {:a=>27, :b=>51, :c=>14, :d=>89}
+    assert_equal placeholder, @enigma.shift_amount
+  end
+
+  def test_it_can_encrypt
+    message = "Hello!"
+    placeholder = "01234"
+    array = []
+    array << message
+    array << placeholder
+    assert_equal array, @enigma.encrypt(message, @enigma.key_generator.generated_key)
+  end
 end

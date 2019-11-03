@@ -1,9 +1,4 @@
-require 'simplecov'
-SimpleCov.start
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'mocha/minitest'
-require 'Date'
+require './test/test_help'
 require './lib/key_generator'
 
 class KeysTest < Minitest::Test
