@@ -16,30 +16,27 @@ class Offset
   end
 
   def square_date
-    date = find_date.to_i
-    date * date
+    find_date.to_i ** 2
   end
 
   def last_four_digits
-    full_number = square_date
-    last_four = full_number % 10000
+     square_date % 10000
   end
 
   def split_last_four
-   last_four = last_four_digits
    last_four_numbers = []
-   last_four_numbers << last_four.to_s
+   last_four_numbers << last_four_digits.to_s
    last_four_numbers[0].split("")
  end
 
  def offset_amount
      last_four = split_last_four
-     last_four.reduce({}) do |alp, number|
-       alp[:a] = ((last_four[0]).to_i)
-       alp[:b] = ((last_four[1]).to_i)
-       alp[:c] = ((last_four[2]).to_i)
-       alp[:d] = ((last_four[3]).to_i)
-       alp
+     last_four.reduce({}) do |acc, number|
+       acc[:a] = ((last_four[0]).to_i)
+       acc[:b] = ((last_four[1]).to_i)
+       acc[:c] = ((last_four[2]).to_i)
+       acc[:d] = ((last_four[3]).to_i)
+       acc
      end
    end
 end
