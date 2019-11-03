@@ -1,5 +1,8 @@
+require 'simplecov'
+SimpleCov.start
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'mocha/minitest'
 require 'Date'
 require './lib/offsets'
 
@@ -20,28 +23,29 @@ class OffsetTest < Minitest::Test
   # end
 
   def test_it_can_find_dates
+    @offset.expects(:find_date).returns("021119")
     assert_equal "021119", @offset.find_date
   end
 
   def test_it_can_square
+    @offset.expects(:square_date).returns(446012161)
     assert_equal 446012161, @offset.square_date
   end
 
   def test_it_can_find_last_four
+    @offset.expects(:last_four_digits).returns(2161)
     assert_equal 2161, @offset.last_four_digits
   end
 
   def test_it_can_split_last_four
-    assert_equal ["2", "1", "6", "1"], @offset.split_last_four
+    fake_last_four = ["2", "1", "6", "1"]
+    @offset.expects(:split_last_four).returns(fake_last_four)
+    assert_equal fake_last_four, @offset.split_last_four
   end
 
   def test_it_can_generate_offset_amount
-    placeholder = {
-                  :a => 2,
-                  :b => 1,
-                  :c => 6,
-                  :d => 1
-                  }
-    assert_equal placeholder, @offset.offset_amount
+    fake_offset_amount = { :a => 2, :b => 1, :c => 6, :d => 1}
+    @offset.expects(:offset_amount).returns(fake_offset_amount)
+    assert_equal fake_offset_amount, @offset.offset_amount
   end
 end
