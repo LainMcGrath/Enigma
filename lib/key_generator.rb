@@ -13,13 +13,10 @@ class KeyGenerator
   end
 
   def random_key_sets
-    key_sets = slice_random_key
-    key_sets.reduce({}) do |acc, number|
-      acc[:a] = ((key_sets[0] + key_sets[1]).to_i)
-      acc[:b] = ((key_sets[1] + key_sets[2]).to_i)
-      acc[:c] = ((key_sets[2] + key_sets[3]).to_i)
-      acc[:d] = ((key_sets[3] + key_sets[4]).to_i)
-      acc
-    end
+    key_sets = {}
+    key_sets[:a] = ((slice_random_key[0] + slice_random_key[1]).to_i)
+    key_sets[:b] = ((slice_random_key[1] + slice_random_key[2]).to_i)
+    key_sets[:c] = ((slice_random_key[2] + slice_random_key[3]).to_i)
+    key_sets[:d] = ((slice_random_key[3] + slice_random_key[4]).to_i)
   end
 end
