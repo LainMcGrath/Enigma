@@ -1,40 +1,22 @@
 require './test/test_helper'
+require './lib/encrypting'
 require './lib/enigma'
 require './lib/offsets'
 require './lib/key_generator'
 
-class EnigmaTest < Minitest::Test
+class EncryptTest < Minitest::Test
 
   def setup
     @enigma = Enigma.new
   end
 
-  def test_it_exists
-    assert_instance_of Enigma, @enigma
-  end
-
-  def test_it_has_attributes
-    placeholder = ["a", "b", "c", "d", "e", "f",
-                    "g", "h", "i", "j", "k", "l",
-                    "m", "n", "o", "p", "q", "r",
-                    "s", "t", "u", "v", "w",
-                    "x", "y", "z", " "]
-    assert_equal placeholder, @enigma.character_set
-    assert_instance_of Offset, @enigma.offset
-    assert_instance_of KeyGenerator, @enigma.key_generator
-  end
-
-  def test_it_can_calculate_shift_amount
-    placeholder = {:a=>27, :b=>51, :c=>14, :d=>89}
-    assert_equal placeholder, @enigma.shift_amount
-  end
-
-  def test_it_can_encrypt
-    message = "Hello!"
-    placeholder = "01234"
-    array = []
-    array << message
-    array << placeholder
-    assert_equal array, @enigma.encrypt(message, @enigma.key_generator.generated_key)
+#test doesn't pass but that is because I don't know how to use stubs
+  def test_it_can_create_encrypt
+    placeholder = {
+      :encryption => "kbtfr",
+      :key        => 8763,
+      :date       => 041119
+    }
+    assert_equal placeholder, @enigma.encrypt("hello")
   end
 end
