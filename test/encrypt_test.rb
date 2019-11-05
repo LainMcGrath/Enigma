@@ -1,16 +1,17 @@
 require './test/test_helper'
-require './lib/encrypting'
+require './lib/encrypted'
 require './lib/offsets'
 require './lib/key_generator'
+require './lib/shiftable'
 
-class EncryptingTest < Minitest::Test
+class EncryptedTest < Minitest::Test
 
   def setup
-    @encrypt = Encrypting.new
+    @encrypt = Encrypted.new
   end
 
   def test_it_exists
-    assert_instance_of Encrypting, @encrypt
+    assert_instance_of Encrypted, @encrypt
   end
 
   def test_it_has_attributes
