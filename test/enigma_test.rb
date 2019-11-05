@@ -20,8 +20,6 @@ class EncryptTest < Minitest::Test
     assert_instance_of String, @enigma.date
   end
 
-
-#test doesn't pass but that is because I don't know how to use stubs
   def test_it_can_create_encrypt
     placeholder = {
       :encryption => "keder ohulw",
@@ -35,7 +33,6 @@ class EncryptTest < Minitest::Test
     }
     assert_equal placeholder, @enigma.encrypt("hello world", "02715", "040895")
     assert_equal placeholder1, @enigma.encrypt("hello world!", "02715", "040895")
-
   end
 
   def test_it_can_decrypt
@@ -51,6 +48,5 @@ class EncryptTest < Minitest::Test
     }
     assert_equal placeholder, @enigma.decrypt("keder ohulw", "02715", "040895")
     assert_equal placeholder2, @enigma.decrypt("keder ohulw!", "02715", "040895")
-
   end
 end
