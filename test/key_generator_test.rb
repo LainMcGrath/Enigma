@@ -11,10 +11,8 @@ class KeysTest < Minitest::Test
   end
 
   def test_it_can_generate_random_key
-    # KeyGenerator.any_instance.stubs(:generated_key).returns(68325)
-    # number, 5 digits, between 0 - 99999
     assert_instance_of Integer, @keys.generated_key
-    # assert_equal 68325, @keys.generated_key
+
   end
 
  def test_it_can_slice_random_keys
