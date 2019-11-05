@@ -28,7 +28,14 @@ class EncryptTest < Minitest::Test
       :key        => "02715",
       :date       => "040895"
     }
+    placeholder1 = {
+      :encryption => "keder ohulw!",
+      :key        => "02715",
+      :date       => "040895"
+    }
     assert_equal placeholder, @enigma.encrypt("hello world", "02715", "040895")
+    assert_equal placeholder1, @enigma.encrypt("hello world!", "02715", "040895")
+
   end
 
   def test_it_can_decrypt
@@ -37,6 +44,13 @@ class EncryptTest < Minitest::Test
       :key        => "02715",
       :date       => "040895"
     }
+    placeholder2 = {
+      :decryption => "hello world!",
+      :key        => "02715",
+      :date       => "040895"
+    }
     assert_equal placeholder, @enigma.decrypt("keder ohulw", "02715", "040895")
+    assert_equal placeholder2, @enigma.decrypt("keder ohulw!", "02715", "040895")
+
   end
 end
