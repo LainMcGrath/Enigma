@@ -12,7 +12,9 @@ class KeysTest < Minitest::Test
 
   def test_it_can_generate_random_key
     assert_instance_of Integer, @keys.generated_key
-
+    key = KeyGenerator.new
+    key.expects(:generated_key).returns(68325)
+    assert_equal 68325, key.generated_key
   end
 
  def test_it_can_slice_random_keys
