@@ -5,6 +5,7 @@ require './lib/enigma'
 require './lib/offsets'
 require './lib/key_generator'
 
+
 class EncryptTest < Minitest::Test
 
   def setup
