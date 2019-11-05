@@ -1,17 +1,18 @@
 require './test/test_helper'
+require './lib/decrypted'
 require './lib/encrypted'
 require './lib/offsets'
 require './lib/key_generator'
 require './lib/shiftable'
 
-class EncryptedTest < Minitest::Test
+class DecryptedTest < Minitest::Test
 
   def setup
-    @encrypt = Encrypted.new
+    @decrypt = Decrypted.new
   end
 
   def test_it_exists
-    assert_instance_of Encrypted, @encrypt
+    assert_instance_of Decrypted, @decrypt
   end
 
   def test_it_has_attributes
@@ -20,9 +21,9 @@ class EncryptedTest < Minitest::Test
                     "m", "n", "o", "p", "q", "r",
                     "s", "t", "u", "v", "w",
                     "x", "y", "z", " "]
-    assert_equal placeholder, @encrypt.character_set
-    assert_instance_of Offset, @encrypt.offset
-    assert_instance_of KeyGenerator, @encrypt.key_generator
+    assert_equal placeholder, @decrypt.character_set
+    assert_instance_of Offset, @decrypt.offset
+    assert_instance_of KeyGenerator, @decrypt.key_generator
   end
 
 #the below tests fail because they
@@ -30,20 +31,20 @@ class EncryptedTest < Minitest::Test
     offset_amount = 41119
     key = 48763
 
-    assert_equal 23, @encrypt.a_shift
-    assert_equal 23, @encrypt.b_shift
-    assert_equal 23, @encrypt.c_shift
-    assert_equal 23, @encrypt.d_shift
+    assert_equal 23, @decrypt.a_shift
+    assert_equal 23, @decrypt.b_shift
+    assert_equal 23, @decrypt.c_shift
+    assert_equal 23, @decrypt.d_shift
   end
 
   def test_it_is_in_alphabet
-    assert_equal true, @encrypt.in_alphabet?("l")
-    assert_equal false, @encrypt.in_alphabet?("!")
+    assert_equal true, @decrypt.in_alphabet?("l")
+    assert_equal false, @decrypt.in_alphabet?("!")
   end
 
   def test_it_can_find_alphabet_index
-    assert_equal 1, @encrypt.alphabet_index("b")
-    assert_equal 26, @encrypt.alphabet_index(" ")
+    assert_equal 1, @decrypt.alphabet_index("b")
+    assert_equal 26, @decrypt.alphabet_index(" ")
   end
 
   def test_it_can_rotate_alphabet
@@ -52,10 +53,10 @@ class EncryptedTest < Minitest::Test
                       "t", "u", "v", "w", "x", "y",
                       "z", " ", "a", "b", "c", "d",
                       "e", "f", "g"]
-    assert_equal placeholder, @encrypt.rotate_alphabet(7)
+    assert_equal placeholder, @decrypt.rotate_alphabet(7)
   end
 
   def test_it_can_encrypt_a_message
-    assert_equal "kbtfr!", @encrypt.encrypt_message("hello!")
+    assert_equal "hello!", @decrypt.decrypt_message("kbtfr!!")
   end
 end
