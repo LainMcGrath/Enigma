@@ -27,8 +27,7 @@ class EncryptedTest < Minitest::Test
 
 #the below tests fail because they
   def test_it_can_create_shift_amounts
-    offset_amount = 41119
-    key = 48763
+
 
     assert_equal 23, @encrypt.a_shift
     assert_equal 23, @encrypt.b_shift
