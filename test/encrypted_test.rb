@@ -22,5 +22,6 @@ class EncryptedTest < Minitest::Test
 
   def test_it_can_encrypt
     assert_equal "keder ohulw", @encrypt.encrypt_message("Hello world")
+    assert_equal "keder ohulw!", @encrypt.encrypt_message("Hello world!")
   end
 end

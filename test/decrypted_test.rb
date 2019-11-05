@@ -7,7 +7,7 @@ require './lib/shiftable'
 class DecryptedTest < Minitest::Test
 
   def setup
-    @decrypt = Decrypted.new("keder ohulw", "02715", "040895")
+    @decrypt = Decrypted.new("02715", "040895")
   end
 
   def test_it_exists

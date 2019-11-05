@@ -1,5 +1,4 @@
 require './lib/shiftable'
-require './lib/offsets'
 
 class Encrypted
   include Shiftable

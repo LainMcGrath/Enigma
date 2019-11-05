@@ -5,7 +5,7 @@ class Decrypted
   include Shiftable
 
   attr_reader :offset, :offset_amount, :shift_keys
-  def initialize(message, key, date)
+  def initialize(key, date)
     @offset = Offset.new(date)
     @offset_amount = @offset.offset_amount
     @shift_keys = random_key_sets(key)

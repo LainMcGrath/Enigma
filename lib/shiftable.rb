@@ -1,6 +1,5 @@
 module Shiftable
 
-
   def character_set
     ("a".."z").to_a << " "
   end
