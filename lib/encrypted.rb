@@ -4,7 +4,7 @@ require './lib/offsets'
 class Encrypted
   include Shiftable
 
-  attr_reader :offset_amount, :shift_keys
+  attr_reader :offset_amount, :shift_keys, :offset
 
   def initialize(key, date)
     @offset = Offset.new(date)
