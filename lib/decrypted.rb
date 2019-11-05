@@ -2,20 +2,20 @@ require './lib/shiftable'
 
 class Decrypted
   include Shiftable
-  
+
   def decrypt_message(message)
     message_setup = message.downcase.split("")
-    encrypted = []
+    decrypted = []
 
     message_setup.each_with_index do |letter, index|
       if in_alphabet?(letter)
         total_shift = shift(index)
-        new_letter = rotate_alphabet(-total_shift)[alphabet_index(letter)]
-        encrypted << new_letter
+        original_letter = rotate_alphabet(-total_shift)[alphabet_index(letter)]
+        decrypted << original_letter
       else
-        encrypted << letter
+        decrypted << letter
       end
     end
-    encrypted.join("")
+    decrypted.join("")
   end
 end

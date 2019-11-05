@@ -1,6 +1,5 @@
 require './test/test_helper'
 require './lib/decrypted'
-require './lib/encrypted'
 require './lib/offsets'
 require './lib/key_generator'
 require './lib/shiftable'
@@ -56,7 +55,7 @@ class DecryptedTest < Minitest::Test
     assert_equal placeholder, @decrypt.rotate_alphabet(7)
   end
 
-  def test_it_can_encrypt_a_message
-    assert_equal "hello!", @decrypt.decrypt_message("kbtfr!!")
+  def test_it_can_decrypt_a_message
+    assert_equal "hello!", @decrypt.decrypt_message("kbtfr!")
   end
 end
