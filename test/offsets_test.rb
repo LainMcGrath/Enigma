@@ -13,6 +13,7 @@ class OffsetTest < Minitest::Test
 #add mocks and stubs for below tests
   # def test_it_has_attributes
   #   date = Time.now
+  #   Time.stub :now, Time.at(0)
   #   assert_equal date, @offset.date
   # end
 
@@ -38,7 +39,8 @@ class OffsetTest < Minitest::Test
   end
 
   def test_it_can_generate_offset_amount
-    fake_offset_amount = { :a => 2, :b => 1, :c => 6, :d => 1}
+    # fake_offset_amount = { :a => 2, :b => 1, :c => 6, :d => 1}
+     # change to array
     @offset.expects(:offset_amount).returns(fake_offset_amount)
     assert_equal fake_offset_amount, @offset.offset_amount
   end
