@@ -1,15 +1,8 @@
 module Shiftable
 
-  attr_reader :character_set, :offset, :key_generator
-
-  def initialize
-    @character_set = ("a".."z").to_a << " "
-    @offset = Offset.new
-    @offset_amount = @offset.offset_amount
-    @key_generator = KeyGenerator.new
-    @shift_keys = @key_generator.random_key_sets
+  def character_set
+    ("a".."z").to_a << " "
   end
-
 
   def a_shift
     @offset_amount[0] + @shift_keys[0]
@@ -40,14 +33,22 @@ module Shiftable
   end
 
   def in_alphabet?(letter)
-    @character_set.include?(letter)
+    character_set.include?(letter)
   end
 
   def alphabet_index(letter)
-    @character_set.find_index(letter)
+    character_set.find_index(letter)
   end
 
   def rotate_alphabet(total_shift)
-    @character_set.rotate(total_shift)
+    character_set.rotate(total_shift)
+  end
+
+  def random_key_sets(key)
+    a = ((key[0] + key[1]).to_i)
+    b = ((key[1] + key[2]).to_i)
+    c = ((key[2] + key[3]).to_i)
+    d = ((key[3] + key[4]).to_i)
+    key_sets = [a, b, c, d]
   end
 end

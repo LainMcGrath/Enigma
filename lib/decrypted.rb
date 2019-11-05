@@ -1,7 +1,15 @@
 require './lib/shiftable'
+require './lib/offsets'
 
 class Decrypted
   include Shiftable
+
+  attr_reader :offset, :offset_amount, :shift_keys
+  def initialize(key, date)
+    @offset = Offset.new(date)
+    @offset_amount = @offset.offset_amount
+    @shift_keys = random_key_sets(key)
+  end
 
   def decrypt_message(message)
     message_setup = message.downcase.split("")
