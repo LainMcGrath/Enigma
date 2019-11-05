@@ -16,28 +16,27 @@ class EncryptTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    assert_instance_of KeyGenerator, @enigma.key_generator
-    assert_instance_of Offset, @enigma.offset
-    assert_instance_of Encrypted, @enigma.encrypted
+    assert_instance_of String, @enigma.key_generator
+    assert_instance_of String, @enigma.date
   end
 
 
 #test doesn't pass but that is because I don't know how to use stubs
   def test_it_can_create_encrypt
     placeholder = {
-      :encryption => "kbtfr",
-      :key        => "98958",
-      :date       => "541119"
+      :encryption => "keder ohulw",
+      :key        => "02715",
+      :date       => "040895"
     }
-    assert_equal placeholder, @enigma.encrypt("hello")
+    assert_equal placeholder, @enigma.encrypt("hello world", "02715", "040895")
   end
 
-  def test_it_can_dencrypt
+  def test_it_can_decrypt
     placeholder = {
-      :encryption => "hello!",
-      :key        => "98958",
-      :date       => "541119"
+      :decryption => "hello world",
+      :key        => "02715",
+      :date       => "040895"
     }
-    assert_equal placeholder, @enigma.decrypt("mabmt")
+    assert_equal placeholder, @enigma.decrypt("keder ohulw", "02715", "040895")
   end
 end

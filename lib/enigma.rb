@@ -4,6 +4,9 @@ require './lib/decrypted'
 require './lib/key_generator'
 
 class Enigma
+
+  attr_reader :key_generator, :date
+
   def initialize
     @key_generator = KeyGenerator.new.slice_random_key.join("")
     @date = Time.now.strftime("%d%m%y")
