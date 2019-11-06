@@ -10,7 +10,9 @@ message_to_encrypt = handle.read
 handle.close
 
 encrypted_message = enigma.encrypt(message_to_encrypt)
+writer = File.open(ARGV[1], "w")
+writer.write(encrypted_message[:encryption])
+writer.close
 
-# write_message(ARGV[1], encryption[:encryption])
 
 puts "Created 'encrypted.txt' with the key #{key_gen.generated_key} and date #{enigma.date}."
