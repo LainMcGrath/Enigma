@@ -6,8 +6,11 @@ self-assessment
 Really wish I was able to get decrypt working in the command line but otherwise,
 I am really happy with how far I was able to push this project.
 
-Functionality - 2.5
-Command line interface isn't fully implemented.
+UPDATE: I turned my computer (and brain) off for the night and when I took a crack at creating
+decrypt today, I realize "oh my, I need to pass in the key and and date as arguments in the decrypt method"
+
+Functionality - 3
+Command line interface is fully implemented, as is encrypt and decrypt
 
 Object Oriented Programming - 3
 Project does include a module but not one that can be used outside of this project.
@@ -21,7 +24,7 @@ Multiple tests use mocks and stubs
 Rake file with 100% coverage
 
 Version Control - 3.5
-62 commits
-15 pull requests (maybe more if I can figure out decrypt runner!)
+67 commits
+16 pull requests
 Commits do not include multiple pieces of functionality
 Commits have clear messaging
