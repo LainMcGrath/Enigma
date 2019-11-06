@@ -24,7 +24,7 @@ Multiple tests use mocks and stubs
 Rake file with 100% coverage
 
 Version Control - 3.5
-62 commits
-15 pull requests (maybe more if I can figure out decrypt runner!)
+67 commits
+16 pull requests
 Commits do not include multiple pieces of functionality
 Commits have clear messaging
